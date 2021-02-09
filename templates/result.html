@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+
+        $("#goback").click(function(){
+            $("html").load("/flames");
+        })
+
+    </script>
+
+    <h1>Welcome to Flames</h1>
+
+    <p>the result was: {{letter}}</p>
+    <button id="goback">Go Back</button><br>
+
+</body>
+</html>

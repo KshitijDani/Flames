@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+
+        function callBackend(){
+            var name1 = document.getElementById("first").value;
+            var name2 = document.getElementById("second").value;
+
+
+            var request_json = {
+                name1: name1,
+                name2: name2
+            };
+
+            var result = ''
+            $.ajax({
+                url: '/calculateFlames',
+                type: 'GET',
+                data : request_json,
+                success: function(response){
+                    alert("request body" + response)
+                    result = response;
+                    document.getElementById("text").value = "Johnny Bravo";
+                    console.log(response)
+
+                }
+            });
+        }
+
+    </script>
+
+    <h1>Welcome to Flames</h1>
+
+    <h2>Please enter 2 names</h2>
+
+        <p>Name 1: <input type="text" id="first"></p><br>
+        <p>Name 2: <input type="text" id="second"></p><br><br>
+    <button onclick = "callBackend()" id="submit">Submit</button><br>
+
+    <p>Flames answer is:{{result}}</p>
+</body>
+</html>
