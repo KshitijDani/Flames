@@ -1,8 +1,6 @@
-import json
 
 from flask import Flask, render_template, request
 from api.exposed import returnLetter
-from werkzeug.debug import console
 
 app = Flask(__name__)
 
@@ -12,10 +10,8 @@ def home():
 
 @app.route('/calculateFlames', methods = ['GET'])
 def calculateFlames():
-
     name1 = request.args.get("name1")
     name2 = request.args.get("name2")
-
     letter = returnLetter(name1, name2)
 
     return letter
